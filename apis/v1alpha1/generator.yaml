@@ -207,6 +207,10 @@ resources:
       DBInstanceStatus:
         print:
           name: "STATUS"
+      DBClusterIdentifier:
+        references:
+          resource: DBCluster
+          path: Spec.DBClusterIdentifier
       PerformanceInsightsKMSKeyId:
         references:
           resource: Key

@@ -49,8 +49,8 @@ type DBInstanceSpec struct {
 	// of the DB instance. By default, tags are not copied.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot,omitempty"`
 	// The identifier of the cluster that the instance will belong to.
-	// +kubebuilder:validation:Required
-	DBClusterIdentifier *string `json:"dbClusterIdentifier"`
+	DBClusterIdentifier    *string                                  `json:"dbClusterIdentifier,omitempty"`
+	DBClusterIdentifierRef *ackv1alpha1.AWSResourceReferenceWrapper `json:"dbClusterIdentifierRef,omitempty"`
 	// The compute and memory capacity of the instance; for example, db.r5.large.
 	// +kubebuilder:validation:Required
 	DBInstanceClass *string `json:"dbInstanceClass"`

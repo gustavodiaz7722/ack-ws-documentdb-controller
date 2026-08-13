@@ -78,6 +78,9 @@ func newResourceDelta(
 			delta.Add("Spec.DBClusterIdentifier", a.ko.Spec.DBClusterIdentifier, b.ko.Spec.DBClusterIdentifier)
 		}
 	}
+	if !equality.Semantic.Equalities.DeepEqual(a.ko.Spec.DBClusterIdentifierRef, b.ko.Spec.DBClusterIdentifierRef) {
+		delta.Add("Spec.DBClusterIdentifierRef", a.ko.Spec.DBClusterIdentifierRef, b.ko.Spec.DBClusterIdentifierRef)
+	}
 	if ackcompare.HasNilDifference(a.ko.Spec.DBInstanceClass, b.ko.Spec.DBInstanceClass) {
 		delta.Add("Spec.DBInstanceClass", a.ko.Spec.DBInstanceClass, b.ko.Spec.DBInstanceClass)
 	} else if a.ko.Spec.DBInstanceClass != nil && b.ko.Spec.DBInstanceClass != nil {
