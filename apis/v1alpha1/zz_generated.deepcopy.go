@@ -1228,6 +1228,11 @@ func (in *DBInstanceSpec) DeepCopyInto(out *DBInstanceSpec) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.DBClusterIdentifierRef != nil {
+		in, out := &in.DBClusterIdentifierRef, &out.DBClusterIdentifierRef
+		*out = new(corev1alpha1.AWSResourceReferenceWrapper)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.DBInstanceClass != nil {
 		in, out := &in.DBInstanceClass, &out.DBInstanceClass
 		*out = new(string)
